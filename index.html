@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề Thi Thử Tiếng Anh – THPT Hoàng Quốc Việt</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card: #ffffff;
+    --primary: #4f46e5;
+    --primary-light: #818cf8;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --orange: #f97316;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --sky: #0ea5e9;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 8px 32px rgba(79,70,229,0.10);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #f5576c 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    animation: bgShift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgShift {
+    0%   { background: linear-gradient(135deg,#667eea,#764ba2,#f093fb,#f5576c); }
+    50%  { background: linear-gradient(135deg,#4facfe,#00f2fe,#43e97b,#38f9d7); }
+    100% { background: linear-gradient(135deg,#fa709a,#fee140,#f093fb,#667eea); }
+  }
+
+  .quiz-wrapper {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeDown 0.6s ease;
+  }
+
+  .header .school-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-family: 'Baloo 2', cursive;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    line-height: 1.2;
+  }
+
+  .header h1 span { color: #fde68a; }
+
+  /* ===== PROGRESS ===== */
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.25);
+    border-radius: 50px;
+    height: 10px;
+    margin: 14px 0 6px;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fde68a, #f59e0b, #fbbf24);
+    border-radius: 50px;
+    transition: width 0.5s cubic-bezier(.4,2,.6,1);
+    box-shadow: 0 0 10px #fbbf2480;
+  }
+
+  .progress-label {
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    animation: cardPop 0.45s cubic-bezier(.34,1.56,.64,1);
+  }
+
+  @keyframes cardPop {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== QUESTION ===== */
+  .q-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(90deg, #818cf8, #c084fc);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+
+  .q-number {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .q-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  .q-text em { font-style: italic; color: var(--primary); }
+
+  /* ===== OPTIONS ===== */
+  .options { display: grid; gap: 10px; }
+
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    background: #f8faff;
+    border: 2px solid #e8edf8;
+    border-radius: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    transition: all 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--primary-light);
+    background: #eef2ff;
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(79,70,229,0.10);
+  }
+
+  .option-btn:disabled { cursor: not-allowed; }
+
+  .opt-letter {
+    min-width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--purple));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: transform 0.2s;
+  }
+
+  .option-btn:hover:not(:disabled) .opt-letter { transform: rotate(-5deg) scale(1.1); }
+
+  .opt-content { flex: 1; }
+  .opt-text { display: block; }
+
+  .opt-explanation {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* States */
+  .option-btn.correct {
+    background: #f0fdf4;
+    border-color: var(--green);
+    animation: correctPop 0.4s ease;
+  }
+
+  .option-btn.correct .opt-letter { background: var(--green); }
+  .option-btn.correct .opt-explanation {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .option-btn.wrong {
+    background: #fff1f2;
+    border-color: var(--red);
+    animation: shake 0.5s ease;
+  }
+
+  .option-btn.wrong .opt-letter { background: var(--red); }
+  .option-btn.wrong .opt-explanation {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .option-btn.other-dimmed {
+    opacity: 0.5;
+    background: #f8faff;
+  }
+
+  .option-btn.highlight-correct {
+    background: #f0fdf4;
+    border-color: var(--green);
+  }
+
+  .option-btn.highlight-correct .opt-letter { background: var(--green); }
+  .option-btn.highlight-correct .opt-explanation {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  @keyframes correctPop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-8px); }
+    40%       { transform: translateX(8px); }
+    60%       { transform: translateX(-5px); }
+    80%       { transform: translateX(5px); }
+  }
+
+  /* ===== FILL-IN-BLANK ===== */
+  .fill-section {
+    margin-top: 22px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fef9c3, #fef3c7);
+    border: 2px dashed var(--accent);
+    border-radius: 16px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fill-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .fill-prompt {
+    font-size: 13px;
+    color: #78350f;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .fill-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .fill-input {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 16px;
+    border: 2px solid #fbbf24;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    background: #fffbeb;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .fill-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #fbbf2430; }
+
+  .fill-input.correct-input {
+    border-color: var(--green);
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .fill-input.wrong-input {
+    border-color: var(--red);
+    background: #fff1f2;
+    animation: shake 0.4s;
+  }
+
+  .btn-submit-fill {
+    padding: 10px 22px;
+    background: linear-gradient(135deg, var(--accent), #f97316);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 12px rgba(245,158,11,0.35);
+  }
+
+  .btn-submit-fill:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,158,11,0.45); }
+  .btn-submit-fill:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .fill-feedback {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    display: none;
+  }
+
+  /* ===== NEXT BUTTON ===== */
+  .next-area {
+    display: none;
+    margin-top: 20px;
+    text-align: right;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    background: linear-gradient(135deg, var(--primary), var(--purple));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 6px 20px rgba(79,70,229,0.35);
+  }
+
+  .btn-next:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 28px rgba(79,70,229,0.45); }
+
+  .btn-next svg { transition: transform 0.2s; }
+  .btn-next:hover svg { transform: translateX(4px); }
+
+  /* ===== SCORE SCREEN ===== */
+  .score-screen {
+    display: none;
+    text-align: center;
+  }
+
+  .score-badge {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .score-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(20px);
+    opacity: 0.3;
+    transform: scale(1.4);
+  }
+
+  .score-badge .score-num {
+    font-size: 40px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+  }
+
+  .score-badge .score-total {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+    z-index: 1;
+  }
+
+  .score-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .score-emoji { font-size: 32px; }
+
+  .score-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  /* Report */
+  .report-section {
+    text-align: left;
+    margin-top: 24px;
+  }
+
+  .report-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .report-item {
+    background: #fff8f8;
+    border: 1.5px solid #fecaca;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .report-item .ri-q { font-weight: 800; color: var(--red); margin-bottom: 4px; }
+  .report-item .ri-text { color: var(--text); font-weight: 600; line-height: 1.5; }
+  .report-item .ri-ans { color: var(--green); font-weight: 700; margin-top: 4px; }
+
+  .report-reviewed {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+
+  .report-reviewed .ri-q { color: var(--green); }
+  .reviewed-badge {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 50px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .btn-restart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(16,185,129,0.35);
+    transition: transform 0.15s;
+  }
+
+  .btn-restart:hover { transform: translateY(-3px); }
+
+  /* Start Screen */
+  .start-screen {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .start-screen .hero-icon {
+    font-size: 70px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+  }
+
+  .start-screen h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .start-screen p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .info-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 50px;
+  }
+
+  .btn-start {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 44px;
+    background: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899);
+    background-size: 200% 200%;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    animation: gradientShift 3s ease infinite;
+    box-shadow: 0 8px 28px rgba(239,68,68,0.4);
+    transition: transform 0.15s;
+  }
+
+  .btn-start:hover { transform: scale(1.05) translateY(-3px); }
+
+  @keyframes gradientShift {
+    0%,100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  /* Confetti */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes confettiFall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .card { padding: 22px 18px; }
+    .q-text { font-size: 16px; }
+    .option-btn { font-size: 14px; padding: 12px 14px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="quiz-wrapper">
+  <div class="header">
+    <div class="school-tag">🏫 THPT Hoàng Quốc Việt – Thái Nguyên</div>
+    <h1>THI THỬ <span>TIẾNG ANH</span> 🇬🇧</h1>
+    <div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-label" id="progressLabel">0 / 40 câu</div>
+    </div>
+  </div>
+
+  <div class="card" id="mainCard">
+    <!-- Start Screen -->
+    <div class="start-screen" id="startScreen">
+      <span class="hero-icon">📝</span>
+      <h2>Bạn đã sẵn sàng chưa?</h2>
+      <p>Đề thi thử Tuyển sinh vào lớp 10 THPT<br>Môn: <strong>Tiếng Anh</strong> – Mã đề <strong>104</strong></p>
+      <div class="info-pills">
+        <div class="pill">📚 40 câu hỏi</div>
+        <div class="pill">⏱️ 60 phút</div>
+        <div class="pill">🌐 Song ngữ Anh – Việt</div>
+        <div class="pill">💡 Giải thích từng đáp án</div>
+      </div>
+      <button class="btn-start" onclick="startQuiz()">
+        🚀 Bắt đầu làm bài
+      </button>
+    </div>
+
+    <!-- Question Screen -->
+    <div id="questionScreen" style="display:none">
+      <div class="q-category" id="qCategory">📌 Grammar</div>
+      <div class="q-number" id="qNumber">Câu 1 / 40</div>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="optionsContainer"></div>
+      <div id="fillSection" style="display:none"></div>
+      <div class="next-area" id="nextArea">
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()">
+          Câu tiếp theo
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Score Screen -->
+    <div class="score-screen" id="scoreScreen">
+      <div class="score-badge" id="scoreBadge">
+        <div class="score-num" id="scoreNum">0</div>
+        <div class="score-total">/40</div>
+      </div>
+      <div class="score-emoji" id="scoreEmoji">🎉</div>
+      <div class="score-title" id="scoreTitle">Kết quả bài thi</div>
+      <div class="score-subtitle" id="scoreSubtitle"></div>
+      <div class="divider"></div>
+      <div class="report-section" id="reportSection"></div>
+      <div style="text-align:center">
+        <button class="btn-restart" onclick="restartQuiz()">
+          🔄 Làm lại bài
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// =============================================
+// QUESTION DATA
+// =============================================
+const questions = [
+  {
+    id: 1,
+    category: "📌 Grammar – Chia động từ",
+    text: "If it __________ tomorrow, we will cancel the picnic.",
+    options: ["rains", "will rain", "rained", "is raining"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! Câu điều kiện loại 1 (Real Conditional): If + <em>hiện tại đơn</em>, will + V. <br><strong>Correct! Type 1 Conditional: If + Simple Present, will + V-infinitive.</strong>",
+      "❌ Sai. Không dùng 'will' trong mệnh đề điều kiện (after 'if'). <br><em>Wrong. Never use 'will' in the 'if' clause of a conditional sentence.</em>",
+      "❌ Sai. 'rained' là quá khứ đơn, dùng trong câu điều kiện loại 2 (If + V-ed). <br><em>Wrong. 'rained' is past simple, used in Type 2 Conditional.</em>",
+      "❌ Sai. Không dùng thì tiếp diễn sau 'if' trong câu điều kiện loại 1. <br><em>Wrong. Progressive tense is not used here.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (dạng động từ trong mệnh đề 'if'): / Type the correct verb form:",
+    correctAnswer: "rains"
+  },
+  {
+    id: 2,
+    category: "📌 Vocabulary – Từ vựng",
+    text: "That television program is not only __________ but also entertaining.",
+    options: ["convenient", "informative", "economical", "necessary"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Convenient' = tiện lợi, không đi kèm với 'entertaining' hợp nghĩa. <br><em>Wrong. 'Convenient' = suitable/easy to use, doesn't pair well with 'entertaining'.</em>",
+      "✅ ĐÚNG! 'Informative' = có nhiều thông tin bổ ích. Chương trình vừa <em>bổ ích</em> vừa <em>giải trí</em>. <br><strong>Correct! 'Informative' = providing useful information, perfect pair with 'entertaining'.</strong>",
+      "❌ Sai. 'Economical' = tiết kiệm, không phù hợp với ngữ cảnh này. <br><em>Wrong. 'Economical' = saving money/resources.</em>",
+      "❌ Sai. 'Necessary' = cần thiết, không phù hợp ý nghĩa câu. <br><em>Wrong. 'Necessary' = needed/essential, doesn't fit here.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (tính từ còn thiếu): / Type the correct adjective:",
+    correctAnswer: "informative"
+  },
+  {
+    id: 3,
+    category: "📌 Grammar – Chia động từ",
+    text: "While we __________ dinner, someone knocked at the door.",
+    options: ["had", "were having", "are having", "have"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Had' là quá khứ đơn. Câu này cần thì <em>đang diễn ra</em> bị gián đoạn. <br><em>Wrong. 'Had' is simple past, not describing ongoing action.</em>",
+      "✅ ĐÚNG! Cấu trúc: While + <em>quá khứ tiếp diễn</em>, quá khứ đơn – hành động đang xảy ra bị gián đoạn. <br><strong>Correct! While + Past Progressive, Simple Past = ongoing action interrupted by another.</strong>",
+      "❌ Sai. 'Are having' là hiện tại tiếp diễn, không phù hợp vì câu nói về quá khứ ('knocked'). <br><em>Wrong. 'Are having' is present progressive; the sentence is in the past.</em>",
+      "❌ Sai. 'Have' là hiện tại đơn, không phù hợp với ngữ cảnh quá khứ. <br><em>Wrong. Simple present doesn't fit past context.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (2 từ): / Type the correct verb phrase (2 words):",
+    correctAnswer: "were having"
+  },
+  {
+    id: 4,
+    category: "📌 Grammar – Động từ nguyên mẫu",
+    text: "They haven't decided where __________ for their holiday yet.",
+    options: ["to going", "to go", "go", "going"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'To going' không đúng ngữ pháp. Sau 'to' phải là nguyên mẫu không 'to'. <br><em>Wrong. 'To going' is grammatically incorrect (to + bare infinitive).</em>",
+      "✅ ĐÚNG! Cấu trúc: question word (where/what/when...) + <em>to-infinitive</em>. <br><strong>Correct! Question word + to-infinitive is the correct structure.</strong>",
+      "❌ Sai. Cần có 'to' sau 'where' trong cấu trúc này. <br><em>Wrong. 'To' is required: 'where to go'.</em>",
+      "❌ Sai. 'Going' là V-ing, không dùng ở đây. Cần 'to go'. <br><em>Wrong. Gerund is not used here.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (2 từ): / Type the correct form (2 words):",
+    correctAnswer: "to go"
+  },
+  {
+    id: 5,
+    category: "📌 Grammar – Trạng từ",
+    text: "The new appliance both works __________ and saves energy.",
+    options: ["effectiveness", "effective", "effectively", "effect"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Effectiveness' là danh từ, không bổ nghĩa cho động từ. <br><em>Wrong. 'Effectiveness' is a noun, cannot modify a verb.</em>",
+      "❌ Sai. 'Effective' là tính từ, bổ nghĩa cho danh từ, không phải động từ. <br><em>Wrong. 'Effective' is an adjective, modifies nouns, not verbs.</em>",
+      "✅ ĐÚNG! 'Effectively' là trạng từ, bổ nghĩa cho động từ 'works'. <br><strong>Correct! 'Effectively' is an adverb, modifying the verb 'works'.</strong>",
+      "❌ Sai. 'Effect' là danh từ, không bổ nghĩa cho động từ. <br><em>Wrong. 'Effect' is a noun.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (trạng từ): / Type the correct adverb:",
+    correctAnswer: "effectively"
+  },
+  {
+    id: 6,
+    category: "📌 Grammar – Giới từ",
+    text: "Wearing uniform encourages students to be proud _____ being students of their school.",
+    options: ["for", "to", "of", "with"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Proud for' không đúng. <br><em>Wrong. 'Proud for' is not correct collocation.</em>",
+      "❌ Sai. 'Proud to' chỉ đi với động từ nguyên mẫu (proud to do sth). <br><em>Wrong. 'Proud to' goes with infinitive, not gerund.</em>",
+      "✅ ĐÚNG! Cụm từ cố định: <em>be proud of</em> + something/someone. <br><strong>Correct! Fixed collocation: be proud of + noun/gerund.</strong>",
+      "❌ Sai. 'Proud with' không đúng. <br><em>Wrong. 'Proud with' is not a valid collocation.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (giới từ): / Type the correct preposition:",
+    correctAnswer: "of"
+  },
+  {
+    id: 7,
+    category: "📌 Grammar – Động từ đặc biệt",
+    text: "She suggested __________ a project about preserving natural environment.",
+    options: ["to do", "doing", "should do", "do"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. Sau 'suggest' không dùng to-infinitive. <br><em>Wrong. 'Suggest' is not followed by to-infinitive.</em>",
+      "✅ ĐÚNG! 'Suggest' + V-ing (gerund). Đây là quy tắc cố định. <br><strong>Correct! 'Suggest' is always followed by a gerund (V-ing).</strong>",
+      "❌ Sai. 'Suggest that + S + should do' đúng nhưng không có 'that S' trong câu này. <br><em>Wrong. This structure needs 'suggest that + subject + should'.</em>",
+      "❌ Sai. Không dùng động từ nguyên mẫu trực tiếp sau 'suggest'. <br><em>Wrong. Bare infinitive cannot follow 'suggest'.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (dạng động từ sau suggest): / Type the correct verb form:",
+    correctAnswer: "doing"
+  },
+  {
+    id: 8,
+    category: "📌 Grammar – Chia động từ",
+    text: "This is the first time I __________ such a good movie.",
+    options: ["was seeing", "have seen", "am seeing", "saw"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Was seeing' là quá khứ tiếp diễn, không dùng với 'This is the first time'. <br><em>Wrong. Past progressive is incorrect here.</em>",
+      "✅ ĐÚNG! Cấu trúc: <em>This is the first time + S + have/has + V3</em> (hiện tại hoàn thành). <br><strong>Correct! 'This is the first time + Present Perfect' is the fixed structure.</strong>",
+      "❌ Sai. Hiện tại tiếp diễn không phù hợp với cấu trúc 'first time'. <br><em>Wrong. Present progressive doesn't work here.</em>",
+      "❌ Sai. 'Saw' là quá khứ đơn, không dùng với 'This is the first time'. <br><em>Wrong. Simple past is incorrect with 'This is the first time'.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (2 từ): / Type the correct form (2 words):",
+    correctAnswer: "have seen"
+  },
+  {
+    id: 9,
+    category: "📌 Grammar – Mạo từ",
+    text: "Mathematics is __________ subject that requires a lot of practice.",
+    options: ["(no article)", "a", "the", "an"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. Cần mạo từ vì 'subject' là danh từ đếm được số ít. <br><em>Wrong. A singular countable noun needs an article.</em>",
+      "✅ ĐÚNG! 'Subject' bắt đầu bằng phụ âm → dùng <em>'a'</em>. Mạo từ bất định vì nhắc đến lần đầu. <br><strong>Correct! 'Subject' starts with a consonant sound → use 'a' (indefinite article).</strong>",
+      "❌ Sai. 'The' là mạo từ xác định, dùng khi người nghe đã biết subject đó. <br><em>Wrong. 'The' is definite, used for specific/known subject.</em>",
+      "❌ Sai. 'An' dùng trước nguyên âm. 'Subject' bắt đầu bằng phụ âm /s/. <br><em>Wrong. 'An' is used before vowel sounds. 'Subject' starts with /s/.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (mạo từ): / Type the correct article:",
+    correctAnswer: "a"
+  },
+  {
+    id: 10,
+    category: "📌 Grammar – Động từ khiếm khuyết",
+    text: "Jack is not at home. He __________ go somewhere with Mary. I'm not sure.",
+    options: ["must", "will", "should", "might"],
+    correct: 3,
+    explanations: [
+      "❌ Sai. 'Must' diễn tả sự chắc chắn cao (~90%), nhưng câu nói 'I'm not sure'. <br><em>Wrong. 'Must' shows high certainty; contradicts 'I'm not sure'.</em>",
+      "❌ Sai. 'Will' diễn tả ý định hoặc dự đoán chắc chắn, không phù hợp với 'not sure'. <br><em>Wrong. 'Will' expresses definite future/intention, not uncertainty.</em>",
+      "❌ Sai. 'Should' diễn tả lời khuyên hoặc nghĩa vụ, không phải suy đoán. <br><em>Wrong. 'Should' expresses advice or obligation, not speculation.</em>",
+      "✅ ĐÚNG! 'Might' diễn tả <em>khả năng không chắc chắn</em> (30-40%), phù hợp với 'I'm not sure'. <br><strong>Correct! 'Might' expresses low possibility/uncertainty, matching 'I'm not sure'.</strong>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (modal verb): / Type the correct modal verb:",
+    correctAnswer: "might"
+  },
+  {
+    id: 11,
+    category: "📌 Grammar – Câu ước",
+    text: "Despite having a good job, she is not satisfied with her salary and wishes she ______ more money.",
+    options: ["will earn", "earned", "is earning", "earns"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Will earn' không dùng sau 'wish' để diễn tả điều không có thật ở hiện tại. <br><em>Wrong. 'Will earn' is not used in 'wish' clauses about present unreality.</em>",
+      "✅ ĐÚNG! Cấu trúc: <em>S + wish(es) + S + V-ed</em> = ước muốn trái thực tế ở hiện tại. <br><strong>Correct! 'Wish + Past Simple' expresses a wish contrary to present reality.</strong>",
+      "❌ Sai. 'Is earning' là hiện tại tiếp diễn, không dùng sau 'wish'. <br><em>Wrong. Present progressive is not used in 'wish' clauses.</em>",
+      "❌ Sai. 'Earns' là hiện tại đơn, không dùng sau 'wish' cho ước muốn trái thực tế. <br><em>Wrong. Simple present is not used after 'wish' for unreal wishes.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (dạng quá khứ đơn): / Type the correct past simple form:",
+    correctAnswer: "earned"
+  },
+  {
+    id: 12,
+    category: "📌 Vocabulary – Đại từ bất định",
+    text: "When visiting a new place, you should take _________ pictures to keep memories of your trip.",
+    options: ["every", "some", "none", "lots"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Every' đi với danh từ số ít (every picture). <br><em>Wrong. 'Every' goes with singular nouns (every picture, not every pictures).</em>",
+      "✅ ĐÚNG! 'Some' đi với danh từ số nhiều trong câu khẳng định. Nghĩa: <em>chụp một số ảnh</em>. <br><strong>Correct! 'Some' is used with plural nouns in affirmative sentences.</strong>",
+      "❌ Sai. 'None' nghĩa là 'không cái nào', trái nghĩa với ý câu. <br><em>Wrong. 'None' means zero/not any, which contradicts the meaning.</em>",
+      "❌ Sai. 'Lots' cần đi với 'of' → 'lots of pictures'. <br><em>Wrong. 'Lots' must be followed by 'of': 'lots of pictures'.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng: / Type the correct word:",
+    correctAnswer: "some"
+  },
+  {
+    id: 13,
+    category: "📌 Vocabulary – Phrasal verb",
+    text: "Don't forget to __________ your jacket before you go out; it's very cold outside.",
+    options: ["turn on", "put off", "switch off", "put on"],
+    correct: 3,
+    explanations: [
+      "❌ Sai. 'Turn on' = bật (thiết bị điện). <br><em>Wrong. 'Turn on' = activate a device (turn on the TV).</em>",
+      "❌ Sai. 'Put off' = hoãn lại / trì hoãn việc gì. <br><em>Wrong. 'Put off' = postpone something.</em>",
+      "❌ Sai. 'Switch off' = tắt (thiết bị điện). <br><em>Wrong. 'Switch off' = deactivate a device.</em>",
+      "✅ ĐÚNG! 'Put on' = mặc vào / đeo vào. Phù hợp với ngữ cảnh mặc áo khoác. <br><strong>Correct! 'Put on' = to wear clothing. Perfect for putting on a jacket.</strong>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (phrasal verb – 2 từ): / Type the correct phrasal verb:",
+    correctAnswer: "put on"
+  },
+  {
+    id: 14,
+    category: "🔊 Pronunciation – Âm nguyên âm",
+    text: "Mark the word whose underlined part differs from the other three in pronunciation:\nA. ar<u>ou</u>nd &nbsp; B. c<u>ou</u>ntry &nbsp; C. c<u>ou</u>nted &nbsp; D. am<u>ou</u>nt",
+    options: ["around", "country", "counted", "amount"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'around' – 'ou' đọc là /aʊ/ (giống C và D). <br><em>Wrong. 'around' – 'ou' is pronounced /aʊ/.</em>",
+      "✅ ĐÚNG! 'country' – 'ou' đọc là <em>/ʌ/</em> (như 'cup'). Còn lại đọc là /aʊ/. <br><strong>Correct! 'country' /ˈkʌntri/ – 'ou' = /ʌ/. Others use /aʊ/.</strong>",
+      "❌ Sai. 'counted' – 'ou' đọc là /aʊ/ (giống A và D). <br><em>Wrong. 'counted' – 'ou' is pronounced /aʊ/.</em>",
+      "❌ Sai. 'amount' – 'ou' đọc là /aʊ/ (giống A và C). <br><em>Wrong. 'amount' – 'ou' is pronounced /aʊ/.</em>"
+    ],
+    fillPrompt: "Gõ từ có phát âm khác: / Type the word that differs:",
+    correctAnswer: "country"
+  },
+  {
+    id: 15,
+    category: "🔊 Pronunciation – Âm /h/",
+    text: "Mark the word whose underlined part differs from the other three in pronunciation:\nA. <u>h</u>our &nbsp; B. <u>h</u>onest &nbsp; C. <u>h</u>otel &nbsp; D. <u>h</u>onour",
+    options: ["hour", "honest", "hotel", "honour"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'hour' – 'h' câm, đọc là /aʊər/. <br><em>Wrong. 'hour' – 'h' is silent, pronounced /aʊər/.</em>",
+      "❌ Sai. 'honest' – 'h' câm, đọc là /ˈɒnɪst/. <br><em>Wrong. 'honest' – 'h' is silent, pronounced /ˈɒnɪst/.</em>",
+      "✅ ĐÚNG! 'hotel' – 'h' được đọc /h/, phát âm /həʊˈtel/. Ba từ kia 'h' đều câm. <br><strong>Correct! 'hotel' /həʊˈtel/ – 'h' is pronounced. The others have a silent 'h'.</strong>",
+      "❌ Sai. 'honour' – 'h' câm, đọc là /ˈɒnər/. <br><em>Wrong. 'honour' – 'h' is silent, pronounced /ˈɒnər/.</em>"
+    ],
+    fillPrompt: "Gõ từ có 'h' được phát âm: / Type the word with a pronounced 'h':",
+    correctAnswer: "hotel"
+  },
+  {
+    id: 16,
+    category: "🔊 Pronunciation – Đuôi số nhiều",
+    text: "Mark the word whose underlined part differs from the other three in pronunciation:\nA. lake<u>s</u> &nbsp; B. beache<u>s</u> &nbsp; C. piece<u>s</u> &nbsp; D. place<u>s</u>",
+    options: ["lakes", "beaches", "pieces", "places"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! 'lakes' – đuôi 's' đọc là <em>/s/</em>. Còn lại đọc là /ɪz/ vì kết thúc bằng âm /tʃ/, /s/, /s/. <br><strong>Correct! 'lakes' /leɪks/ – 's' = /s/. Others end in sibilant sounds → pronounced /ɪz/.</strong>",
+      "❌ Sai. 'beaches' – đuôi 'es' đọc là /ɪz/ vì sau âm /tʃ/. <br><em>Wrong. 'beaches' – 'es' is pronounced /ɪz/ after /tʃ/ sound.</em>",
+      "❌ Sai. 'pieces' – đuôi 'es' đọc là /ɪz/ vì sau âm /s/. <br><em>Wrong. 'pieces' – 'es' is /ɪz/ after /s/ sound.</em>",
+      "❌ Sai. 'places' – đuôi 'es' đọc là /ɪz/ vì sau âm /s/. <br><em>Wrong. 'places' – 'es' is /ɪz/ after /s/ sound.</em>"
+    ],
+    fillPrompt: "Gõ từ có đuôi phát âm khác: / Type the word that differs:",
+    correctAnswer: "lakes"
+  },
+  {
+    id: 17,
+    category: "🔊 Pronunciation – Đuôi -ed",
+    text: "Mark the word whose underlined part differs from the other three in pronunciation:\nA. decid<u>ed</u> &nbsp; B. claim<u>ed</u> &nbsp; C. start<u>ed</u> &nbsp; D. divid<u>ed</u>",
+    options: ["decided", "claimed", "started", "divided"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'decided' – '-ed' đọc là /ɪd/ (sau âm /d/). <br><em>Wrong. 'decided' – '-ed' is /ɪd/ (after /d/ sound).</em>",
+      "✅ ĐÚNG! 'claimed' – '-ed' đọc là <em>/d/</em> (sau nguyên âm /eɪ/). Ba từ kia đọc là /ɪd/. <br><strong>Correct! 'claimed' /kleɪmd/ – '-ed' = /d/. Others end in /t/ or /d/ → pronounced /ɪd/.</strong>",
+      "❌ Sai. 'started' – '-ed' đọc là /ɪd/ (sau âm /t/). <br><em>Wrong. 'started' – '-ed' is /ɪd/ (after /t/ sound).</em>",
+      "❌ Sai. 'divided' – '-ed' đọc là /ɪd/ (sau âm /d/). <br><em>Wrong. 'divided' – '-ed' is /ɪd/ (after /d/ sound).</em>"
+    ],
+    fillPrompt: "Gõ từ có '-ed' phát âm khác: / Type the word that differs:",
+    correctAnswer: "claimed"
+  },
+  {
+    id: 18,
+    category: "🔊 Pronunciation – Nguyên âm đầu",
+    text: "Mark the word whose underlined part differs from the other three in pronunciation:\nA. <u>a</u>ccount &nbsp; B. <u>a</u>dmire &nbsp; C. <u>a</u>ccess &nbsp; D. <u>a</u>ddicted",
+    options: ["account", "admire", "access", "addicted"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'account' – 'a' đọc là /ə/ (âm schwa không nhấn). <br><em>Wrong. 'account' – 'a' is schwa /ə/ (unstressed).</em>",
+      "❌ Sai. 'admire' – 'a' đọc là /ə/ (âm schwa không nhấn). <br><em>Wrong. 'admire' – 'a' is schwa /ə/ (unstressed).</em>",
+      "✅ ĐÚNG! 'access' – 'a' đọc là <em>/æ/</em> (âm nhấn, như 'cat'). Ba từ kia 'a' = /ə/. <br><strong>Correct! 'access' /ˈækses/ – 'a' = /æ/ (stressed). Others have 'a' = /ə/.</strong>",
+      "❌ Sai. 'addicted' – 'a' đọc là /ə/ (âm schwa không nhấn). <br><em>Wrong. 'addicted' – 'a' is schwa /ə/ (unstressed).</em>"
+    ],
+    fillPrompt: "Gõ từ có 'a' phát âm khác: / Type the word that differs:",
+    correctAnswer: "access"
+  },
+  {
+    id: 19,
+    category: "💬 Communication – Phản hồi phù hợp",
+    text: 'Cindy: "Why don\'t we go to the National Museum?"\nJennifer: "__________"',
+    options: ["Please do.", "No problem.", "Good idea.", "Certainly."],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Please do.' dùng để cho phép ai làm gì, không phải đáp lại lời đề nghị. <br><em>Wrong. 'Please do' is a permission response, not agreement with a suggestion.</em>",
+      "❌ Sai. 'No problem.' dùng khi cảm ơn, không phải đáp lại lời gợi ý. <br><em>Wrong. 'No problem' is a response to 'thank you', not to a suggestion.</em>",
+      "✅ ĐÚNG! 'Good idea!' là cách đáp lại lời gợi ý rất tự nhiên và phổ biến. <br><strong>Correct! 'Good idea!' is the most natural response to a suggestion ('Why don't we...').</strong>",
+      "❌ Sai. 'Certainly.' phù hợp khi đồng ý làm theo yêu cầu, không phải gợi ý. <br><em>Wrong. 'Certainly' agrees to a request, not a suggestion.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (2 từ): / Type the correct response (2 words):",
+    correctAnswer: "good idea"
+  },
+  {
+    id: 20,
+    category: "💬 Communication – Phản hồi phù hợp",
+    text: 'Tony: "Do you mind if I stay a little longer?"\nJack: "__________"',
+    options: ["Of course, I mind.", "It's my pleasure.", "It's nice of you.", "No, not at all."],
+    correct: 3,
+    explanations: [
+      "❌ Sai. 'Of course, I mind.' nghĩa là 'Tôi phiền đấy' – trái ngược với ý muốn cho phép ở lại. <br><em>Wrong. 'Of course, I mind' means you object to them staying.</em>",
+      "❌ Sai. 'It's my pleasure.' dùng để phản hồi lời cảm ơn, không phải câu hỏi xin phép. <br><em>Wrong. 'It's my pleasure' replies to 'thank you', not a permission request.</em>",
+      "❌ Sai. 'It's nice of you.' dùng để khen, không đúng ngữ cảnh. <br><em>Wrong. 'It's nice of you' is a compliment, not a permission response.</em>",
+      "✅ ĐÚNG! 'No, not at all.' = 'Không, không sao cả' – đồng ý cho phép ở lại. <br><strong>Correct! 'No, not at all' = granting permission politely. 'Do you mind?' → 'No' means you don't mind = it's fine!</strong>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (4 từ): / Type the correct response:",
+    correctAnswer: "no, not at all"
+  },
+  {
+    id: 21,
+    category: "✏️ Error Correction – Sửa lỗi",
+    text: "When he was a little boy, he used to <u>going swimming</u> with me.\n(Phần gạch chân nào sai? / Which underlined part is wrong?)",
+    options: ["little", "going swimming", "When", "used to"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'little' đúng (tính từ bổ nghĩa cho 'boy'). <br><em>Wrong. 'little' is correct as an adjective modifying 'boy'.</em>",
+      "✅ ĐÚNG! Sai: 'going swimming' → Phải là 'go swimming'. Cấu trúc: <em>used to + V nguyên mẫu</em>. <br><strong>Correct! 'used to + bare infinitive' → 'used to go swimming' (not 'going').</strong>",
+      "❌ Sai. 'When' đúng về mặt ngữ pháp. <br><em>Wrong. 'When' is grammatically correct.</em>",
+      "❌ Sai. 'used to' đúng – đây là cấu trúc diễn tả thói quen trong quá khứ. <br><em>Wrong. 'used to' is correct for past habits.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (2 từ thay thế 'going swimming'): / Type the correct form:",
+    correctAnswer: "go swimming"
+  },
+  {
+    id: 22,
+    category: "✏️ Error Correction – Sửa lỗi",
+    text: "The children were very <u>boring</u> with the film and wanted to go home.\n(Phần gạch chân nào sai? / Which underlined part is wrong?)",
+    options: ["and", "were", "with", "boring"],
+    correct: 3,
+    explanations: [
+      "❌ Sai. 'and' đúng – liên từ nối hai mệnh đề. <br><em>Wrong. 'and' is a correct coordinating conjunction.</em>",
+      "❌ Sai. 'were' đúng – động từ 'be' chia theo số nhiều quá khứ. <br><em>Wrong. 'were' is the correct past plural form of 'be'.</em>",
+      "❌ Sai. 'with' đúng – 'bored with' là cụm từ cố định. <br><em>Wrong. 'with' is correct: 'bored with something'.</em>",
+      "✅ ĐÚNG! Sai: 'boring' → Phải là 'bored'. 'Boring' mô tả vật gây chán, 'bored' mô tả cảm xúc của người. <br><strong>Correct! 'boring' → 'bored'. 'Boring' describes the thing (the film is boring); 'bored' describes how people feel.</strong>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (tính từ thay 'boring'): / Type the correct adjective:",
+    correctAnswer: "bored"
+  },
+  {
+    id: 23,
+    category: "✏️ Error Correction – Sửa lỗi",
+    text: "I'm glad to hear that you speak English very <u>good</u>.\n(Phần gạch chân nào sai? / Which underlined part is wrong?)",
+    options: ["speak", "to hear", "good", "very"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'speak' đúng – động từ nguyên mẫu sau 'you'. <br><em>Wrong. 'speak' is the correct base form after 'you'.</em>",
+      "❌ Sai. 'to hear' đúng – cấu trúc 'glad to + infinitive'. <br><em>Wrong. 'to hear' is correct in 'glad to hear'.</em>",
+      "✅ ĐÚNG! Sai: 'good' (tính từ) → Phải là 'well' (trạng từ). Bổ nghĩa cho động từ 'speak' cần trạng từ. <br><strong>Correct! 'good' → 'well'. An adverb ('well') must modify the verb 'speak', not an adjective ('good').</strong>",
+      "❌ Sai. 'very' đúng – trạng từ bổ nghĩa cho 'well'. <br><em>Wrong. 'very' correctly modifies the adverb.</em>"
+    ],
+    fillPrompt: "Gõ từ đúng thay cho 'good': / Type the correct word to replace 'good':",
+    correctAnswer: "well"
+  },
+  {
+    id: 24,
+    category: "📖 Vocabulary – Từ đồng nghĩa",
+    text: 'Let\'s wait here for her. I\'m sure she\'ll <u>turn up</u> in a few minutes.',
+    options: ["arrive", "enter", "visit", "leave"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! 'turn up' = xuất hiện / đến. 'Arrive' = đến. Hai từ đồng nghĩa trong ngữ cảnh này. <br><strong>Correct! 'turn up' = to arrive/appear. 'Arrive' is the closest synonym here.</strong>",
+      "❌ Sai. 'enter' = bước vào (cụ thể hơn, vào trong một nơi). <br><em>Wrong. 'enter' means to go into a place, more specific than 'turn up'.</em>",
+      "❌ Sai. 'visit' = thăm viếng, khác với ý 'xuất hiện'. <br><em>Wrong. 'visit' = to go to see someone/somewhere, not the same as appearing.</em>",
+      "❌ Sai. 'leave' = rời đi, trái nghĩa với 'turn up'. <br><em>Wrong. 'leave' = to go away, the opposite meaning.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (từ đồng nghĩa): / Type the correct synonym:",
+    correctAnswer: "arrive"
+  },
+  {
+    id: 25,
+    category: "📖 Vocabulary – Từ đồng nghĩa",
+    text: "He always feels a bit <u>nervous</u> before every important match.",
+    options: ["worried", "happy", "calm", "easy"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! 'nervous' = lo lắng, hồi hộp. 'Worried' = lo lắng. Hai từ gần nghĩa nhất. <br><strong>Correct! 'nervous' ≈ 'worried' – both describe anxiety/unease before an event.</strong>",
+      "❌ Sai. 'happy' = vui vẻ, trái với 'nervous'. <br><em>Wrong. 'happy' is a positive feeling, the opposite of nervous.</em>",
+      "❌ Sai. 'calm' = bình tĩnh, trái nghĩa với 'nervous'. <br><em>Wrong. 'calm' = relaxed/unworried, the antonym of nervous.</em>",
+      "❌ Sai. 'easy' = thoải mái/dễ dàng, không đồng nghĩa với 'nervous'. <br><em>Wrong. 'easy' = comfortable/simple, not nervous.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (từ đồng nghĩa với 'nervous'): / Type the synonym:",
+    correctAnswer: "worried"
+  },
+  {
+    id: 26,
+    category: "📖 Vocabulary – Từ trái nghĩa",
+    text: "To help the environment, we should <u>reduce</u> our use of single-use plastics.",
+    options: ["increase", "decrease", "protect", "decline"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! 'reduce' = giảm. 'Increase' = tăng – đây là từ TRÁI nghĩa. <br><strong>Correct! 'reduce' = to make less. 'Increase' = to make more → perfect antonym.</strong>",
+      "❌ Sai. 'decrease' = giảm, ĐỒNG nghĩa với 'reduce', không phải trái nghĩa. <br><em>Wrong. 'decrease' = to become less, which is a SYNONYM, not an antonym.</em>",
+      "❌ Sai. 'protect' = bảo vệ, không liên quan đến giảm/tăng. <br><em>Wrong. 'protect' = to keep safe, different meaning.</em>",
+      "❌ Sai. 'decline' = từ chối/giảm sút, không phải trái nghĩa rõ ràng nhất. <br><em>Wrong. 'decline' = to refuse/decrease, not the clearest antonym.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (từ TRÁI nghĩa với 'reduce'): / Type the antonym of 'reduce':",
+    correctAnswer: "increase"
+  },
+  {
+    id: 27,
+    category: "📖 Vocabulary – Từ trái nghĩa",
+    text: "I was so <u>tired</u> when I got home from work last night that I had a quick nap.",
+    options: ["depressed", "exhausted", "energetic", "weak"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'depressed' = chán nản/trầm cảm, không phải trái nghĩa của 'tired'. <br><em>Wrong. 'depressed' = sad/low mood, not the opposite of tired.</em>",
+      "❌ Sai. 'exhausted' = rất mệt mỏi – ĐỒNG nghĩa với 'tired', không phải trái nghĩa. <br><em>Wrong. 'exhausted' = extremely tired – a SYNONYM, not antonym.</em>",
+      "✅ ĐÚNG! 'tired' = mệt mỏi. 'Energetic' = tràn đầy năng lượng – từ TRÁI nghĩa. <br><strong>Correct! 'tired' ↔ 'energetic'. Full of energy is the opposite of being tired.</strong>",
+      "❌ Sai. 'weak' = yếu ớt – gần nghĩa với 'tired', không phải trái nghĩa. <br><em>Wrong. 'weak' is closer to a synonym (lack of strength) than an antonym.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (từ TRÁI nghĩa với 'tired'): / Type the antonym of 'tired':",
+    correctAnswer: "energetic"
+  },
+  {
+    id: 28,
+    category: "✍️ Sentence Transformation – Chuyển câu",
+    text: "Chips are not as healthy as fresh fruits and vegetables.\n→ Chọn câu có nghĩa TƯƠNG ĐƯƠNG:",
+    options: [
+      "Chips are more healthy than fresh fruits and vegetables.",
+      "Chips are as healthy as fresh fruits and vegetables.",
+      "Chips are less healthy than fresh fruits and vegetables.",
+      "Fresh fruits and vegetables are not as healthy as chips."
+    ],
+    correct: 2,
+    explanations: [
+      "❌ Sai. Nghĩa trái ngược: 'more healthy' nghĩa là chips tốt hơn, nhưng câu gốc nói chips kém hơn. <br><em>Wrong. 'More healthy' contradicts the original (chips are worse, not better).</em>",
+      "❌ Sai. 'As healthy as' nghĩa là bằng nhau, nhưng câu gốc nói không bằng. <br><em>Wrong. 'As healthy as' means equal, but the original says they are NOT equal.</em>",
+      "✅ ĐÚNG! 'Not as A as B' = 'less A than B'. Chips kém healthy hơn rau quả. <br><strong>Correct! 'Not as healthy as' = 'less healthy than' – same meaning, different structure.</strong>",
+      "❌ Sai. Đảo ngược chủ thể – câu này nói rau quả kém chips, trái nghĩa. <br><em>Wrong. This reverses the subjects – says vegetables are less healthy than chips.</em>"
+    ],
+    fillPrompt: "Gõ từ điền vào chỗ trống 'Chips are ___ healthy than...': / Type the missing word:",
+    correctAnswer: "less"
+  },
+  {
+    id: 29,
+    category: "✍️ Sentence Transformation – Chuyển câu",
+    text: "It takes him ten minutes to walk to school every day.\n→ Chọn câu có nghĩa TƯƠNG ĐƯƠNG:",
+    options: [
+      "He spends ten minutes to walk to school every day.",
+      "Ten minutes is long enough for him to go to school every day.",
+      "He wastes ten minutes on the way to school every day.",
+      "He spends ten minutes walking to school every day."
+    ],
+    correct: 3,
+    explanations: [
+      "❌ Sai. 'Spend + time + to V' sai ngữ pháp. Phải là 'spend + time + V-ing'. <br><em>Wrong. 'Spend time to walk' is grammatically incorrect; must be 'spend time walking'.</em>",
+      "❌ Sai. Nghĩa câu thay đổi – 'long enough' hàm ý thời gian đủ, không giống câu gốc. <br><em>Wrong. 'Long enough' changes the meaning.</em>",
+      "❌ Sai. 'Waste' = lãng phí, có ý tiêu cực – câu gốc không có nghĩa này. <br><em>Wrong. 'Waste' implies wasting time unnecessarily, which changes the meaning.</em>",
+      "✅ ĐÚNG! Cấu trúc tương đương: <em>It takes + O + time + to V = S + spend + time + V-ing</em>. <br><strong>Correct! 'It takes him 10 mins to walk' = 'He spends 10 mins walking' (V-ing, not to V).</strong>"
+    ],
+    fillPrompt: "Gõ dạng động từ đúng sau 'spend time' (V-ing): / Type the correct -ing form of 'walk':",
+    correctAnswer: "walking"
+  },
+  {
+    id: 30,
+    category: "✍️ Sentence Transformation – Câu tường thuật",
+    text: '"You will like science after reading this book", our teacher said.\n→ Chọn câu tường thuật ĐÚNG:',
+    options: [
+      "Our teacher said that we would like science after reading that book.",
+      "Our teacher said that you would like science after reading this book.",
+      "Our teacher said that we would like science after reading this book.",
+      "Our teacher said that we will like science after reading this book."
+    ],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! Đổi: you→we, will→would, this→that. Đầy đủ và chính xác nhất. <br><strong>Correct! Reported speech changes: 'you'→'we', 'will'→'would', 'this'→'that'.</strong>",
+      "❌ Sai. 'you' không đổi sang 'we' và 'this' không đổi sang 'that'. <br><em>Wrong. 'You' should change to 'we' and 'this' to 'that' in reported speech.</em>",
+      "❌ Sai. 'this' không đổi sang 'that' – trong câu tường thuật cần lùi thì chỉ định từ. <br><em>Wrong. 'This' must change to 'that' in reported speech.</em>",
+      "❌ Sai. 'will' phải đổi thành 'would' trong câu tường thuật (lùi thì). <br><em>Wrong. 'Will' must backshift to 'would' in reported speech.</em>"
+    ],
+    fillPrompt: "Gõ modal verb đúng (lùi thì từ 'will'): / Type the backshifted modal from 'will':",
+    correctAnswer: "would"
+  },
+  {
+    id: 31,
+    category: "📄 Reading – Điền từ vào đoạn văn",
+    text: 'People may think teenagers are (31) __________ young to be in charge of a class when they\'re still students themselves...',
+    options: ["enough", "too", "so", "very"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Enough' đặt SAU tính từ: 'young enough'. <br><em>Wrong. 'Enough' comes AFTER the adjective: 'young enough'.</em>",
+      "✅ ĐÚNG! Cấu trúc: <em>too + adj + to V</em> = quá... đến nỗi không thể... Câu ngụ ý họ quá trẻ. <br><strong>Correct! 'Too + adjective + to-infinitive' = so... that cannot. 'Too young to be in charge'.</strong>",
+      "❌ Sai. 'So' dùng trong cấu trúc 'so + adj + that + clause', không dùng với 'to'. <br><em>Wrong. 'So' pairs with 'that', not 'to': 'so young that they cannot'.</em>",
+      "❌ Sai. 'Very' chỉ tăng cường mức độ, không tạo nghĩa 'quá...không thể'. <br><em>Wrong. 'Very' intensifies but doesn't imply inability like 'too'.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng: / Type the correct word:",
+    correctAnswer: "too"
+  },
+  {
+    id: 32,
+    category: "📄 Reading – Điền từ vào đoạn văn",
+    text: "...in a new government scheme (32) __________ allows school leavers to work as teaching assistants in primary schools.",
+    options: ["why", "when", "which", "what"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Why' giới thiệu mệnh đề nguyên nhân, không dùng làm đại từ quan hệ thay thế danh từ. <br><em>Wrong. 'Why' introduces reason clauses, not relative clauses replacing nouns.</em>",
+      "❌ Sai. 'When' dùng cho mệnh đề quan hệ chỉ thời gian (thường sau 'time', 'day'). <br><em>Wrong. 'When' refers to time in relative clauses.</em>",
+      "✅ ĐÚNG! 'Which' là đại từ quan hệ thay thế 'scheme' (danh từ chỉ vật). <br><strong>Correct! 'Which' is a relative pronoun replacing 'scheme' (a thing/concept).</strong>",
+      "❌ Sai. 'What' không dùng làm đại từ quan hệ trong mệnh đề quan hệ có antecedent. <br><em>Wrong. 'What' = 'the thing that', cannot follow a specific noun like 'scheme'.</em>"
+    ],
+    fillPrompt: "Gõ đại từ quan hệ đúng: / Type the correct relative pronoun:",
+    correctAnswer: "which"
+  },
+  {
+    id: 33,
+    category: "📄 Reading – Điền từ vào đoạn văn",
+    text: "New rules...have allowed all primary school teachers to have more time during the school day for (33) __________ lessons...",
+    options: ["thinking", "practising", "preparing", "reading"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Thinking' không phù hợp – giáo viên cần thời gian soạn bài, không phải 'suy nghĩ'. <br><em>Wrong. 'Thinking' doesn't fit the context of teacher workload.</em>",
+      "❌ Sai. 'Practising' không phù hợp với ngữ cảnh (giáo viên luyện tập gì?). <br><em>Wrong. 'Practising' doesn't naturally fit what teachers need time for.</em>",
+      "✅ ĐÚNG! 'Preparing lessons' = soạn giáo án – lý do chính khiến giáo viên cần thêm thời gian. <br><strong>Correct! 'Preparing lessons' = lesson planning, which is why teachers need extra time.</strong>",
+      "❌ Sai. 'Reading' không phải nhiệm vụ chính của giáo viên cần thêm thời gian. <br><em>Wrong. 'Reading' doesn't fit the specific context of teacher responsibilities.</em>"
+    ],
+    fillPrompt: "Gõ đáp án đúng (V-ing form): / Type the correct gerund:",
+    correctAnswer: "preparing"
+  },
+  {
+    id: 34,
+    category: "📄 Reading – Điền từ vào đoạn văn",
+    text: "They take a (34) __________ course, starting when they're 14.",
+    options: ["two-year", "two-years", "two years", "two years'"],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! Tính từ ghép bổ nghĩa cho danh từ: <em>two-year course</em> (dùng gạch nối, không thêm 's'). <br><strong>Correct! Compound adjective before noun: 'two-year course' (hyphenated, no 's' on year).</strong>",
+      "❌ Sai. 'two-years' sai vì trong tính từ ghép, danh từ không chia số nhiều. <br><em>Wrong. Compound adjectives don't use plural: 'two-year', not 'two-years'.</em>",
+      "❌ Sai. 'two years' (không gạch nối) chỉ là cụm danh từ, không phải tính từ ghép đứng trước danh từ. <br><em>Wrong. Without hyphen, this is a noun phrase, not a compound adjective.</em>",
+      "❌ Sai. 'two years'' (sở hữu cách) không phù hợp cú pháp ở đây. <br><em>Wrong. Possessive form doesn't work as a compound adjective here.</em>"
+    ],
+    fillPrompt: "Gõ dạng tính từ ghép đúng (có gạch nối): / Type the correct compound adjective:",
+    correctAnswer: "two-year"
+  },
+  {
+    id: 35,
+    category: "📄 Reading – Điền từ vào đoạn văn",
+    text: "The government believes that about 18,000 teenagers could get jobs in this way. (35)__________, many people believe that young teenagers will not make suitable teachers.",
+    options: ["Otherwise", "However", "Therefore", "Moreover"],
+    correct: 1,
+    explanations: [
+      "❌ Sai. 'Otherwise' = nếu không thì, diễn tả điều kiện phủ định. <br><em>Wrong. 'Otherwise' = if not/or else, expresses a condition.</em>",
+      "✅ ĐÚNG! 'However' = tuy nhiên – nối ý tương phản (chính phủ tin A, nhưng nhiều người nghĩ B). <br><strong>Correct! 'However' introduces a contrasting idea: government is optimistic, but many disagree.</strong>",
+      "❌ Sai. 'Therefore' = do đó, diễn tả kết quả/hệ quả, không phải tương phản. <br><em>Wrong. 'Therefore' shows result/consequence, not contrast.</em>",
+      "❌ Sai. 'Moreover' = hơn nữa, bổ sung ý, không phải tương phản. <br><em>Wrong. 'Moreover' adds information, not contrasts it.</em>"
+    ],
+    fillPrompt: "Gõ liên từ chuyển tiếp đúng: / Type the correct transition word:",
+    correctAnswer: "however"
+  },
+  {
+    id: 36,
+    category: "📰 Reading Comprehension – Đọc hiểu",
+    text: 'Đọc đoạn văn về HappyNews và trả lời:\n\nWhat is the MAIN IDEA of the passage?',
+    options: [
+      "HappyNews was created to provide more positive and balanced news.",
+      "Women are more interested in reading news than men.",
+      "News media should only report bad events in society.",
+      "Most readers prefer online news websites to television programs."
+    ],
+    correct: 0,
+    explanations: [
+      "✅ ĐÚNG! Ý chính của đoạn văn: HappyNews được tạo ra để cân bằng tin tức tiêu cực bằng tin tức tích cực. <br><strong>Correct! The passage is about HappyNews offering balanced/positive news to counter negative media bias.</strong>",
+      "❌ Sai. Dù đề cập 60% độc giả là phụ nữ, đây không phải ý chính. <br><em>Wrong. The 60% female readership is a detail, not the main idea.</em>",
+      "❌ Sai. Trái ngược hoàn toàn – bài viết phản đối quan điểm chỉ đưa tin xấu. <br><em>Wrong. This contradicts the passage; HappyNews opposes only reporting bad news.</em>",
+      "❌ Sai. Không có thông tin so sánh website với chương trình TV trong bài. <br><em>Wrong. The passage doesn't compare websites with TV programs.</em>"
+    ],
+    fillPrompt: "Gõ tên website được nhắc đến trong bài: / Type the name of the website:",
+    correctAnswer: "happynews"
+  },
+  {
+    id: 37,
+    category: "📰 Reading Comprehension – Đọc hiểu",
+    text: 'The word "<u>exaggerating</u>" in paragraph 1 is CLOSEST in meaning to _________.',
+    options: ["editing", "improving", "worsening", "explaining"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'editing' = biên tập, sửa nội dung – khác với 'exaggerating'. <br><em>Wrong. 'Editing' = revising content, different from exaggerating.</em>",
+      "❌ Sai. 'improving' = cải thiện – trái nghĩa với 'exaggerating bad news'. <br><em>Wrong. 'Improving' is positive, while exaggerating bad news makes it worse.</em>",
+      "✅ ĐÚNG! 'Exaggerating bad news' = phóng đại tin xấu → làm cho vẻ tệ hơn thực tế. 'Worsening' = làm xấu đi. <br><strong>Correct! To 'exaggerate bad news' means making it seem worse than it is → 'worsening' is closest.</strong>",
+      "❌ Sai. 'explaining' = giải thích – không có nghĩa phóng đại. <br><em>Wrong. 'Explaining' = making clear, not overstating.</em>"
+    ],
+    fillPrompt: "Gõ từ đồng nghĩa với 'exaggerating': / Type the closest synonym:",
+    correctAnswer: "worsening"
+  },
+  {
+    id: 38,
+    category: "📰 Reading Comprehension – Đọc hiểu",
+    text: "How is HappyNews DIFFERENT from other news sources?",
+    options: [
+      "The website only has stories about women.",
+      "All of the stories are written by Reese.",
+      "Its stories are not about bad things.",
+      "HappyNews does not exaggerate its stories."
+    ],
+    correct: 2,
+    explanations: [
+      "❌ Sai. Bài không nói HappyNews chỉ viết về phụ nữ (60% là độc giả nữ, không phải chủ đề). <br><em>Wrong. 60% female readers ≠ stories only about women.</em>",
+      "❌ Sai. Bài không đề cập tất cả bài do Reese viết. <br><em>Wrong. The passage doesn't say Reese wrote all stories.</em>",
+      "✅ ĐÚNG! HappyNews khác biệt vì tập trung vào tin tức tích cực, không phải tin xấu như các nguồn khác. <br><strong>Correct! HappyNews focuses on positive/good news, unlike other sources reporting bad events.</strong>",
+      "❌ Sai. Bài không so sánh mức độ phóng đại. <br><em>Wrong. The passage doesn't claim HappyNews doesn't exaggerate.</em>"
+    ],
+    fillPrompt: "Gõ loại tin tức mà HappyNews không đăng: / Type what type of news HappyNews avoids:",
+    correctAnswer: "bad"
+  },
+  {
+    id: 39,
+    category: "📰 Reading Comprehension – Đọc hiểu",
+    text: 'The word "<u>they</u>" in paragraph 2 refers to ________.',
+    options: ["issues", "sources", "people", "problems"],
+    correct: 2,
+    explanations: [
+      "❌ Sai. 'Issues' là đề tài/vấn đề (danh từ chỉ vật), không thể dùng đại từ 'they' chỉ người. <br><em>Wrong. 'Issues' are things, not people who make decisions.</em>",
+      "❌ Sai. 'Sources' = nguồn tin (vật), không phải đối tượng đưa ra quyết định có thông tin. <br><em>Wrong. 'Sources' are things, not the ones making informed decisions.</em>",
+      "✅ ĐÚNG! 'They' = 'People' – câu trước đó: 'People need to know about issues... Then they are better able to make informed decisions.' <br><strong>Correct! 'They' refers back to 'People' (the ones who make informed decisions after knowing about issues).</strong>",
+      "❌ Sai. 'Problems' là danh từ chỉ vật, không phải chủ thể ra quyết định. <br><em>Wrong. 'Problems' are things, not agents making decisions.</em>"
+    ],
+    fillPrompt: "Gõ danh từ mà 'they' thay thế: / Type the noun that 'they' refers to:",
+    correctAnswer: "people"
+  },
+  {
+    id: 40,
+    category: "📰 Reading Comprehension – Đọc hiểu",
+    text: "Which of the following is NOT TRUE about HappyNews after its first month online?",
+    options: [
+      "Most of its readers were women.",
+      "Readers sent in nice letters about it every day.",
+      "It had thousands of readers.",
+      "Reese used it to create other websites."
+    ],
+    correct: 3,
+    explanations: [
+      "❌ Sai (= Đúng trong bài). Bài có đề cập 60% độc giả là phụ nữ. <br><em>Wrong choice. The passage DOES mention 60% of readers were women (this statement IS true).</em>",
+      "❌ Sai (= Đúng trong bài). HappyNews nhận fan mail mỗi ngày. <br><em>Wrong choice. The passage DOES say HappyNews gets fan mail daily (this IS true).</em>",
+      "❌ Sai (= Đúng trong bài). Hơn 70,000 độc giả = hàng chục nghìn. <br><em>Wrong choice. 70,000+ unique readers IS mentioned in the passage (true).</em>",
+      "✅ ĐÚNG (câu NOT TRUE)! Bài không đề cập Reese dùng HappyNews để tạo website khác. Đây là thông tin sai. <br><strong>Correct! The passage NEVER mentions Reese creating other websites through HappyNews. This is FALSE.</strong>"
+    ],
+    fillPrompt: "Gõ tên người sáng lập HappyNews: / Type the name of HappyNews' founder:",
+    correctAnswer: "reese"
+  }
+];
+
+// =============================================
+// STATE
+// =============================================
+let currentIndex = 0;
+let score = 0;
+let answered = false;
+let wrongAnswers = []; // {qIndex, reviewed}
+let fillReviewed = false;
+
+function startQuiz() {
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('questionScreen').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  fillReviewed = false;
+  const q = questions[currentIndex];
+
+  document.getElementById('qCategory').innerHTML = q.category;
+  document.getElementById('qNumber').textContent = `Câu ${q.id} / 40`;
+  document.getElementById('qText').innerHTML = q.text.replace(/\n/g, '<br>');
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+
+  const letters = ['A', 'B', 'C', 'D'];
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.id = `opt-${i}`;
+    btn.innerHTML = `
+      <div class="opt-letter">${letters[i]}</div>
+      <div class="opt-content">
+        <span class="opt-text">${opt}</span>
+        <div class="opt-explanation" id="exp-${i}">${q.explanations[i]}</div>
+      </div>`;
+    btn.onclick = () => selectAnswer(i);
+    container.appendChild(btn);
+  });
+
+  document.getElementById('fillSection').style.display = 'none';
+  document.getElementById('fillSection').innerHTML = '';
+  document.getElementById('nextArea').style.display = 'none';
+
+  updateProgress();
+
+  // Animate card
+  const card = document.getElementById('mainCard');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'cardPop 0.45s cubic-bezier(.34,1.56,.64,1)';
+}
+
+function selectAnswer(chosen) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentIndex];
+  const isCorrect = chosen === q.correct;
+
+  for (let i = 0; i < 4; i++) {
+    const btn = document.getElementById(`opt-${i}`);
+    btn.disabled = true;
+    const exp = document.getElementById(`exp-${i}`);
+
+    if (i === chosen) {
+      btn.classList.add(isCorrect ? 'correct' : 'wrong');
+      exp.style.display = 'block';
+    } else if (i === q.correct && !isCorrect) {
+      btn.classList.add('highlight-correct');
+      exp.style.display = 'block';
+    } else {
+      btn.classList.add('other-dimmed');
+    }
+  }
+
+  if (isCorrect) {
+    score++;
+    document.getElementById('nextArea').style.display = 'block';
+  } else {
+    wrongAnswers.push({ qIndex: currentIndex, reviewed: false });
+    showFillSection();
+  }
+}
+
+function showFillSection() {
+  const q = questions[currentIndex];
+  const fill = document.getElementById('fillSection');
+  fill.style.display = 'block';
+  fill.innerHTML = `
+    <div class="fill-section">
+      <div class="fill-title">✍️ Ôn lại kiến thức / Review Knowledge</div>
+      <div class="fill-prompt">${q.fillPrompt}<br>
+        <strong>→ Đáp án đúng là: "<em>${q.correctAnswer}</em>"</strong> – Hãy gõ lại để ghi nhớ!<br>
+        <em>The correct answer is "${q.correctAnswer}" – Type it to reinforce your memory!</em>
+      </div>
+      <div class="fill-input-row">
+        <input type="text" class="fill-input" id="fillInput" placeholder="Gõ đáp án đúng vào đây..." autocomplete="off" />
+        <button class="btn-submit-fill" id="btnFillSubmit" onclick="checkFill()">Xác nhận ✓</button>
+      </div>
+      <div class="fill-feedback" id="fillFeedback"></div>
+    </div>`;
+
+  document.getElementById('fillInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkFill();
+  });
+  setTimeout(() => document.getElementById('fillInput').focus(), 200);
+}
+
+function checkFill() {
+  const q = questions[currentIndex];
+  const input = document.getElementById('fillInput');
+  const feedback = document.getElementById('fillFeedback');
+  const typed = input.value.trim().toLowerCase();
+  const correct = q.correctAnswer.toLowerCase();
+
+  if (typed === correct) {
+    input.classList.remove('wrong-input');
+    input.classList.add('correct-input');
+    input.disabled = true;
+    document.getElementById('btnFillSubmit').disabled = true;
+    feedback.style.display = 'block';
+    feedback.style.color = '#166534';
+    feedback.innerHTML = '✅ Chính xác! Tuyệt vời! / Correct! Well done!';
+
+    // Mark as reviewed
+    const entry = wrongAnswers.find(w => w.qIndex === currentIndex);
+    if (entry) entry.reviewed = true;
+    fillReviewed = true;
+
+    setTimeout(() => {
+      document.getElementById('nextArea').style.display = 'block';
+    }, 600);
+  } else {
+    input.classList.add('wrong-input');
+    feedback.style.display = 'block';
+    feedback.style.color = '#991b1b';
+    feedback.innerHTML = `❌ Chưa đúng. Hãy thử lại! / Not quite. Try again! (Gợi ý / Hint: "${q.correctAnswer[0]}...")`;
+    setTimeout(() => { input.classList.remove('wrong-input'); }, 500);
+  }
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= questions.length) {
+    showScore();
+  } else {
+    renderQuestion();
+  }
+}
+
+function updateProgress() {
+  const pct = (currentIndex / questions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `${currentIndex} / ${questions.length} câu`;
+}
+
+function showScore() {
+  document.getElementById('questionScreen').style.display = 'none';
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressLabel').textContent = `${questions.length} / ${questions.length} câu`;
+
+  const screen = document.getElementById('scoreScreen');
+  screen.style.display = 'block';
+
+  const badge = document.getElementById('scoreBadge');
+  const pct = score / questions.length;
+
+  let gradient, emoji, title, subtitle;
+  if (pct >= 0.9) {
+    gradient = 'linear-gradient(135deg,#10b981,#059669)';
+    emoji = '🏆🎉🌟'; title = 'Xuất sắc! / Excellent!';
+    subtitle = `Điểm số tuyệt vời! Bạn đã nắm vững kiến thức.\nYou've mastered this material!`;
+  } else if (pct >= 0.75) {
+    gradient = 'linear-gradient(135deg,#3b82f6,#6366f1)';
+    emoji = '👏😊'; title = 'Giỏi! / Well done!';
+    subtitle = 'Kết quả tốt! Ôn lại các câu sai nhé. / Good result! Review your mistakes.';
+  } else if (pct >= 0.5) {
+    gradient = 'linear-gradient(135deg,#f59e0b,#ef4444)';
+    emoji = '💪📚'; title = 'Cố lên! / Keep it up!';
+    subtitle = 'Cần ôn luyện thêm nhé. / You need a bit more practice.';
+  } else {
+    gradient = 'linear-gradient(135deg,#ef4444,#dc2626)';
+    emoji = '📖💡'; title = 'Cần cố gắng hơn! / Need more effort!';
+    subtitle = 'Hãy ôn tập kỹ và thử lại! / Study more and try again!';
+  }
+
+  badge.style.background = gradient;
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('scoreEmoji').textContent = emoji;
+  document.getElementById('scoreTitle').textContent = title;
+  document.getElementById('scoreSubtitle').innerHTML = subtitle.replace('\n','<br>');
+
+  // Report
+  buildReport();
+
+  // Confetti for good score
+  if (pct >= 0.75) launchConfetti();
+}
+
+function buildReport() {
+  const section = document.getElementById('reportSection');
+  const notReviewed = wrongAnswers.filter(w => !w.reviewed);
+  const reviewed = wrongAnswers.filter(w => w.reviewed);
+
+  let html = '';
+
+  if (wrongAnswers.length === 0) {
+    html = '<div style="text-align:center;font-size:18px;font-weight:700;color:#10b981;padding:16px">🎊 Bạn trả lời đúng tất cả! Perfect score!</div>';
+  } else {
+    if (notReviewed.length > 0) {
+      html += `<div class="report-title">⚠️ Câu sai chưa ôn lại / Wrong & Not Reviewed (${notReviewed.length} câu)</div>`;
+      notReviewed.forEach(w => {
+        const q = questions[w.qIndex];
+        const correctOpt = q.options[q.correct];
+        html += `
+          <div class="report-item">
+            <div class="ri-q">Câu ${q.id}:</div>
+            <div class="ri-text">${q.text.replace(/<[^>]+>/g,'').replace(/\n/g,' ').substring(0,120)}...</div>
+            <div class="ri-ans">✅ Đáp án đúng: ${correctOpt} / Correct: ${correctOpt}</div>
+          </div>`;
+      });
+    }
+
+    if (reviewed.length > 0) {
+      html += `<div class="report-title" style="color:#10b981;margin-top:16px">✅ Câu sai đã ôn lại / Wrong but Reviewed (${reviewed.length} câu)</div>`;
+      reviewed.forEach(w => {
+        const q = questions[w.qIndex];
+        const correctOpt = q.options[q.correct];
+        html += `
+          <div class="report-item report-reviewed">
+            <div class="ri-q">Câu ${q.id}: <span class="reviewed-badge">Đã ôn ✓</span></div>
+            <div class="ri-text">${q.text.replace(/<[^>]+>/g,'').replace(/\n/g,' ').substring(0,120)}...</div>
+            <div class="ri-ans">✅ Đáp án: ${correctOpt}</div>
+          </div>`;
+      });
+    }
+  }
+
+  section.innerHTML = html;
+}
+
+function launchConfetti() {
+  const colors = ['#f59e0b','#10b981','#3b82f6','#ec4899','#8b5cf6','#ef4444','#fbbf24'];
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.cssText = `
+        left: ${Math.random()*100}vw;
+        top: -20px;
+        background: ${colors[Math.floor(Math.random()*colors.length)]};
+        width: ${6+Math.random()*10}px;
+        height: ${6+Math.random()*10}px;
+        border-radius: ${Math.random()>0.5?'50%':'2px'};
+        animation-duration: ${1.5+Math.random()*2}s;
+        animation-delay: ${Math.random()*0.5}s;
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }, i * 30);
+  }
+}
+
+function restartQuiz() {
+  currentIndex = 0;
+  score = 0;
+  answered = false;
+  wrongAnswers = [];
+  fillReviewed = false;
+
+  document.getElementById('scoreScreen').style.display = 'none';
+  document.getElementById('questionScreen').style.display = 'block';
+  renderQuestion();
+}
+</script>
+</body>
+</html>
